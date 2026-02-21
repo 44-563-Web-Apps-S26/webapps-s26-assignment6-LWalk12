@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VILLAN</title>
+    </head>
+ 
+<body>
+
+<h2>Villans by Lane Walker</h2>
+
+<form>
+    <label for="villan">Funny Man </label>
+    <input type ="password" id="villan" name="form1_age" min=10 max=50 step=2 value="Joker"> <br>
+
+    <label for="check">Guess the villan </label>
+    <input type ="text" id="check" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="checkVillan()" value="Check the guess">
+</form>
+
+
+<p id="result"></p>
+
+<script> 
+
+    var caught = 0
+    var gotAway = 0
+
+function checkVillan (){
+    console.log("Getting form values")
+    villan = document.getElementById("villan").value
+    guess = document.getElementById("check").value
+    
+    out = document.getElementById("result")
+    if(villan == guess){
+        caught+=1
+        alert("You caught them!")
+        out.innerHTML = "caught =" + caught
+    } else {
+        gotAway+=1
+        alert("Maybe next time :( ")
+        out.innerHTML = "gotAway =" + gotAway
+    }
+}
+</script>
+
+</body>
+</html> 
