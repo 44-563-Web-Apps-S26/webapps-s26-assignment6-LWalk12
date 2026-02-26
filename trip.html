@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TRIP</title>
+        
+        </head>
+ 
+<body>
+
+<h2>Lane Walker travel planner</h2>
+
+<form>
+    <label for="cari">Caribbean</label>
+    <input type ="checkbox" id="cari" name="cari" value=true> <br>
+
+    <label for="medi">Mediterranean</label>
+    <input type ="checkbox" id="medi" name="medi" value=true> <br>
+
+    <label for="balt">Baltic</label>
+    <input type ="checkbox" id="balt" name="balt" value=false> <br>
+
+    <input type="button" onclick="choices()" value="Cruise Choices">
+</form>
+
+
+<p id="result"></p>
+
+<script> 
+
+console.log("Getting form values")
+
+my_trip = {}
+
+out = document.getElementById("result")
+function choices(){
+    my_trip = {}
+
+    my_trip={
+        Caribbean: document.getElementById('cari').checked,
+        Mediterranean : document.getElementById('medi').checked,
+        Baltic : document.getElementById('balt').checked,
+    }
+
+    out.innerHTML = JSON.stringify(my_trip)
+}
+</script>
+
+</body>
+</html> 
