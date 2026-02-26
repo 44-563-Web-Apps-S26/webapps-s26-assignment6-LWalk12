@@ -22,12 +22,19 @@
     <input type="button" onclick="choices()" value="Cruise Choices">
 </form>
 
+<form>
+    <label for="start">Enter starting city</label>
+    <input type ="text" id="start" name="start" value="Athens"> <br>
+
+    <label for="term">Enter ending city</label>
+    <input type ="text" id="term" name="term" value=""> <br>
+
+    <input type="button" onclick="updateTrip()" value="update the trip">
+</form>
 
 <p id="result"></p>
 
 <script> 
-
-console.log("Getting form values")
 
 my_trip = {}
 
@@ -43,6 +50,18 @@ function choices(){
 
     out.innerHTML = JSON.stringify(my_trip)
 }
+
+function updateTrip(){
+    start = document.getElementById('start').value
+    end = document.getElementById('term').value
+
+    my_trip['startCity']=start
+    my_trip['endCity']=end
+    
+    out.innerHTML = JSON.stringify(my_trip)
+
+}
+
 </script>
 
 </body>
