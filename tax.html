@@ -25,8 +25,20 @@
     <input type="button" onclick="doTax()" value="Show tax table">
 </form>
 
+<p id="resultTax">Taxes are: </p>
 
-<p id="result">Taxes are: </p>
+<form>
+    <input type="radio" id="power" name="op" value="exponent" onclick="chooseOp()">
+    <label for="power">power</label></br>
+    
+    <input type="radio" id="sum" name="op" value="add" onclick="chooseOp()">
+    <label for="sum">sum</label></br>
+    
+    <input type="radio" id="mod" name="op" value="mod" onclick="chooseOp()">
+    <label for="rg1_green">mod</label></br>
+</form>
+
+<p id="resultOp">here</p>
 
 <script> 
 
@@ -38,7 +50,7 @@ function doTax (){
     baseRate = document.getElementById("baseRate").value
     extRate = document.getElementById("extRate").value
     
-    out = document.getElementById("result")
+    out = document.getElementById("resultTax")
 
     var taxTable = ""
 
@@ -48,6 +60,31 @@ function doTax (){
         taxTable += incomeLevel + " tax is " + calculatedTax + "; "
     }
     out.innerHTML = "Taxes are: " + taxTable
+}
+
+function chooseOp() {
+    income = parseFloat(document.getElementById("income").value)
+    baseRate = parseFloat(document.getElementById("baseRate").value)
+
+    product = 0
+    operator = ""
+
+    out = document.getElementById("resultOp")
+
+    if (document.getElementById("mod").checked == true){
+        product = income % baseRate
+        operator = ' % '
+    }else if (document.getElementById("sum").checked == true){
+        product = income + baseRate
+        operator = ' + '
+    }else if(document.getElementById("power").checked == true){
+        product = income ** baseRate
+        operator = ' ^ '
+       
+    }
+
+    out.innerHTML = income + operator + baseRate + ' = ' + product
+
 }
 </script>
 
