@@ -18,8 +18,14 @@
     <input type="button" onclick="checkVillan()" value="Check the guess">
 </form>
 
-
 <p id="result"></p>
+
+<div class="image">
+    <img src="img/redwoodTree.jpg" alt="A Redwood Tree" id="tree" width="150" height="150" onclick="updatePic()">
+</div>
+
+
+
 
 <script> 
 
@@ -42,6 +48,24 @@ function checkVillan (){
         out.innerHTML = "gotAway =" + gotAway
     }
 }
+</script>
+
+<script>
+    var usePic = 1
+    img = document.getElementById('tree')
+
+    function updatePic(){
+        if (usePic == 1){
+            img.src = 'img/empressTree.jpg'
+            usePic = 2
+        }else if (usePic == 2){
+            img.src = 'img/kowhaiTree.jpg'
+            usePic =3
+        }else if (usePic = 3){
+            img.src = 'img/redwoodTree.jpg'
+            usePic = 1
+        }
+    }
 </script>
 
 </body>
